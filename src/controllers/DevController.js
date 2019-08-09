@@ -2,6 +2,25 @@ const axios = require('axios');
 const Dev = require('../models/Dev');
 
 module.exports = {
+    async index(req, res) {
+        const { user } = req.headers;
+        const loggedDev = await Dev.findById(user);
+
+        const users = await Dev.find({
+            // Precisamos de 3 filtros: 
+            // Não pode ser o usuário logado
+            // Não pode ser quem ele já curtiu
+            // Não pode ser quem ele dispensou
+            // Nesse caso, usamos o operador $and para que todos os filtros sejam do tipo AND
+            $and: [
+                { _id: { $ne: user } }, // $ne = "not equal", ou seja, não queremos que o id do usuário buscado seja igual ao do usuário logado
+                { _id: { $nin: loggedDev.likes } }, // $nin = "not in", estamos passando um array com a lista de todos os contatos que teve curtidas
+                { _id: { $nin: loggedDev.dislikes } },
+            ]
+        })
+
+        return res.json(users);
+    },
     async store(req, res) {
         const { username } = req.body;
 

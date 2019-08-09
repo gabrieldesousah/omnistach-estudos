@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const routes = require('./routes');
+const cors = require('cors');
+
 const port = 3333;
+
+const routes = require('./routes');
 
 const server = express();
 
@@ -9,6 +12,7 @@ mongoose.connect('mongodb+srv://root:root@cluster0-sgrla.mongodb.net/test?retryW
     useNewUrlParser: true
 });
 
+server.use(cors()); // Isto libera que a aplicação seja acessada pelo react
 server.use(express.json());
 server.use(routes);
 
