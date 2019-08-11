@@ -46,8 +46,6 @@ module.exports = {
             avatar
         });
 
-        console.log(`https://api.github.com/users/${username}`);
-
         return res.json(dev);
     }
 };

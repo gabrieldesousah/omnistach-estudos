@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const port = 3333;
 
-const routes = require('./routes');
+const routes = require('./routes'); // Rotas sempre depois dos requires
 
 const server = express();
 
