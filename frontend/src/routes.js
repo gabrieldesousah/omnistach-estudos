@@ -12,7 +12,7 @@ export default function Routes() {
       {/* O React não irá analisar o path por inteiro, apenas o começo dele.
         Portanto, se deseja algo que não vai dar conflito, é preciso usar o EXACT */}
       <Route path="/" exact component={Login} />
-      <Route path="/main" component={Main} />
+      <Route path="/dev/:id" component={Main} />
     </BrowserRouter>
   );
 }

@@ -1,3 +1,9 @@
+// Os 3 princípios/conceitos do React:
+// Componente
+// Estado
+// Propriedade - qualquer atributo colocado em uma tag do jsx(trablahada via o props)
+
+
 import React from 'react';
 import './App.css';
 
