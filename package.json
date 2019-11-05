@@ -14,7 +14,7 @@
     "cors": "^2.8.5",
     "create-react-app": "^3.1.0",
     "express": "^4.17.1",
-    "mongoose": "^5.6.8",
+    "mongoose": "^5.7.5",
     "npm": "^6.10.3"
   },
   "devDependencies": {
